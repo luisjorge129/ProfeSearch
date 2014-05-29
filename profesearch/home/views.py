@@ -21,7 +21,8 @@ class ProfessorsListView(ListView):
         context = super(ProfessorsListView, self).get_context_data(**kwargs)
         q = self.request.GET.get('q')
         if q:
-            url = uri + "search/?format=%s&q=%s" % ("json", q)
+            url = uri + "search/?format=%s&q=%s" % ("json",
+                                                    urllib.quote_plus(q))
             results = json.load(urllib2.urlopen(url))
             context['professorsList'] = results
             context['count'] = len(results)
