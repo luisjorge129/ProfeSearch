@@ -17,12 +17,12 @@
 				<h2 class="text-center">{{ professor.first_name }} {{ professor.last_name }}</h2>
 			</div>
 			<div class="col-sm-6">
-				<p><strong>University:</strong> {{professor.university_name }}</p>
+				<p><strong>Universidad:</strong> {{professor.university_name }}</p>
 				<p><strong>Departamento:</strong> {{ professor.department_name }}</p>
 			</div>
 			<div class="col-sm-6">
-				<p><strong>Score:</strong> {{ professor.score }}</p>
-				<p><strong>Gender: </strong>{{ professor.gender }}</p>
+				<p><strong>Puntuación:</strong> %{% widthratio professor.score 1 100 %}</p>
+				<p><strong>Genero: </strong>{{ professor.gender }}</p>
 			</div>
 			<div class="clear"></div>
 		</div>
@@ -30,7 +30,7 @@
 
 	{% if professor.user_comments.total_comments %}
 		<div class="row">
-			<div class="panel panel-primary">
+			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h4>Commentarios totales: {{ professor.user_comments.total_comments }}</h4>
 				</div>
@@ -40,7 +40,7 @@
 							<div class="col-sm-12">
 								<div class="comment-box">
 									<p><strong>{{ comment.name }}</strong><small class="text-muted"> - {{ comment.created_at|naturaltime }}</small></p>
-									<div>{{ comment.body }}</div>
+									<div class="comment-text">{{ comment.body }}</div>
 								</div>
 							</div>
 						</div>

@@ -96,11 +96,19 @@ You also need to include this conditional style in the <head> of your HTML file 
 	margin-top: 100px;
 }
 
-.panel-body{
-
-}
-
 .comment-box{
-	border-bottom: 1px solid #aaa;
+	border-bottom: 1px solid #CCC;
 	padding: 15px;
+	background-color: #eee;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-o-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	box-shadow: 4px 4px 4px #ccc;
+	-moz-box-shadow: 4px 4px 4px #ccc;
+	-webkite-box-shadow: 4px 4px 4px #ccc;
+	-o-box-shadow: 4px 4px 4px #ccc;
+	padding: 20px;
+	line-height: 1.6em;
+	margin-bottom: 20px;
 }

@@ -3,10 +3,10 @@
 	<div ="row">
 		<table class="table table-hover">
 			<tr>
-				<th>Professor</th>
-				<th>University</th>
-				<th>Department</th>
-				<th>Score</th>
+				<th>Profesor</th>
+				<th>Universidad</th>
+				<th>Departamento</th>
+				<th>Puntuación</th>
 			</tr>
 			{% for professor in professorsList %}
 				<tr>
@@ -15,7 +15,7 @@
 					</td>
 					<td>{{ professor.university_name }}</td>
 					<td>{{ professor.department_name }}</td>
-					<td>%{{ professor.score|floatformat:2 }}</td>
+					<td>%{% widthratio professor.score 1 100 %}</td>
 				</tr>
 			{% endfor %}
 		</table>
