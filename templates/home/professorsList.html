@@ -11,11 +11,19 @@
 			{% for professor in professorsList %}
 				<tr>
 					<td>
-						<a href="{% url 'home:professor-detail' professor.id %}">{{ professor.first_name }} {{ professor.last_name }}</a>
+						<a href="{% url 'home:professor-detail' 818 %}">{{ professor.first_name }} {{ professor.last_name }}</a>
 					</td>
 					<td>{{ professor.university_name }}</td>
 					<td>{{ professor.department_name }}</td>
-					<td>%{% widthratio professor.score 1 100 %}</td>
+					<td class="star">
+						{% for i in "12345" %}
+							{% if i|add:0 <= professor.star_score %}
+								<i class="glyphicon glyphicon-star"></i>
+							{% else %}
+								<i class="glyphicon glyphicon-star-empty"></i>
+							{% endif %}
+						{% endfor %}
+					</td>
 				</tr>
 			{% endfor %}
 		</table>

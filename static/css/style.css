@@ -112,3 +112,12 @@ You also need to include this conditional style in the <head> of your HTML file 
 	line-height: 1.6em;
 	margin-bottom: 20px;
 }
+
+.star > i{
+	color: #FEE128;
+}
+
+.star-detail > i{
+	font-size: 22px;
+	margin-top: 15px;
+}
