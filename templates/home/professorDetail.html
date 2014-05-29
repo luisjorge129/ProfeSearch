@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load humanize %}
+
+{% block title %}Professor: {{ professor.first_name }} {{ professor.last_name }}{% endblock title %}
+
+{% block content %}
+	<div class="row">
+		<ol class="breadcrumb">
+		  <li><a ng-href="{% url 'home:home' %}">Search</a></li>
+		  <li class="active" ><a ng-href="#">{{ professor.first_name }} {{ professor.last_name }}</a></li>
+		</ol>
+	</div>
+
+	<div class="row">
+		<div class="jumbotron">
+			<div class="col-sm-12">
+				<h2 class="text-center">{{ professor.first_name }} {{ professor.last_name }}</h2>
+			</div>
+			<div class="col-sm-6">
+				<p><strong>University:</strong> {{professor.university_name }}</p>
+				<p><strong>Departamento:</strong> {{ professor.department_name }}</p>
+			</div>
+			<div class="col-sm-6">
+				<p><strong>Score:</strong> {{ professor.score }}</p>
+				<p><strong>Gender: </strong>{{ professor.gender }}</p>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+
+	{% if professor.user_comments.total_comments %}
+		<div class="row">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h4>Commentarios totales: {{ professor.user_comments.total_comments }}</h4>
+				</div>
+				<div class="panel-body">
+					{% for comment in professor.user_comments.entries %}
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="comment-box">
+									<p><strong>{{ comment.name }}</strong><small class="text-muted"> - {{ comment.created_at|naturaltime }}</small></p>
+									<div>{{ comment.body }}</div>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	{% else %}
+		<div class="alert alert-default">No hay ningun comentario.</div>
+	{% endif %}
+{% endblock content %}
+
+{% block js %}{% endblock js %}

@@ -1,0 +1,27 @@
+{% if count != 0 %}
+<h4>Resultados: {{ count }}</h4>
+	<div ="row">
+		<table class="table table-hover">
+			<tr>
+				<th>Professor</th>
+				<th>University</th>
+				<th>Department</th>
+				<th>Score</th>
+			</tr>
+			{% for professor in professorsList %}
+				<tr>
+					<td>
+						<a href="{% url 'home:professor-detail' 818 %}">{{ professor.first_name }} {{ professor.last_name }}</a>
+					</td>
+					<td>{{ professor.university_name }}</td>
+					<td>{{ professor.department_name }}</td>
+					<td>%{{ professor.score|floatformat:2 }}</td>
+				</tr>
+			{% endfor %}
+		</table>
+	</div>
+{% else %}
+	<div class="alert alert-danger">
+		No se encontro ningun profesor con el nombre: {{ keyword }}
+	</div>
+{% endif %}

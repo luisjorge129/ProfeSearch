@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Busca for a professor{% endblock title %}
+
+{% block content %}
+	<div class="row text-center col-lg-offset-4">
+		<form>
+			<div class="col-lg-6">
+				<label for="profesearch">Escribe el nombre del profesor:</label>
+				<div class="input-group">
+					<input id="profesearch" type="text" ng-model="q" class="form-control">
+					<span class="input-group-btn">
+						<button class="btn btn-primary" ng-click="submit(q)"><i class="glyphicon glyphicon-search"></i> Search</button>
+					</span>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<div ng-show="loading" ng-cloak class="text-center">
+		<img src="{% static "img/loading.gif" %}" id="loading" alt="loading" />
+	</div>
+	<div ng-bind-html="searchData"></div>
+{% endblock content %}
+
+{% block js %}
+
+{% endblock js %}

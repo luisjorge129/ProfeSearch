@@ -1,0 +1,37 @@
+{% load staticfiles %}
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %}{% endblock %}</title>
+	<link rel="shortcut icon" type="image/png" href="{% static "img/search.ico" %}"/>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+	<script src="https://code.angularjs.org/1.2.16/angular-resource.min.js"></script>
+	<script src="{% static 'js/app.js' %}"></script>
+	{% block css %}{% endblock %}
+</head>
+<body>
+	<div id="wrap" ng-app="search">
+		<div id="main">
+			<div id="header">
+				<div class="text-center">
+					<h1 style="color: #fff;">ProfeSearch</h1>
+					<h4 style="color: #ddd">Busca a tus profesores antes de llegar al salón.</h4>
+				</div>
+			</div>
+			<div class="container" ng-controller="SearchCtrl">
+				{% block content %}{% endblock %}
+			</div>
+		</div>
+	</div>
+
+	<div id="footer" class="text-center">
+		<p class="pull-left hidden-xs col-sm-8">Un simple search hecho con el REST API de <a href="https://notaso.com/api" target="_blank">Notaso.</a></p>
+		<p class="pull-right col-xs-12 col-sm-4">powered by <a href="http://notaso.com"><img id="notaso-logo" src="{% static 'img/notaso_logo.png' %}" alt=""></a></p>
+		<div class="clear"></div>
+	</div>
+</body>
+</html>
