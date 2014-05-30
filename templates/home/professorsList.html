@@ -1,6 +1,6 @@
-{% if count != 0 %}
-	{% if count %}
-		<h4>Resultados: {{ count }}</h4>
+{% if professorsList.count != 0 %}
+	{% if professorsList.count %}
+		<h5> {{ professorsList.results|length }} de {{ professorsList.count }} resultados.</h5>
 		<div ="row">
 			<table class="table table-hover">
 				<tr>
@@ -9,10 +9,10 @@
 					<th>Departamento</th>
 					<th>Puntuación</th>
 				</tr>
-				{% for professor in professorsList %}
+				{% for professor in professorsList.results %}
 					<tr>
 						<td>
-							<a href="{% url 'home:professor-detail' 818 %}">{{ professor.first_name }} {{ professor.last_name }}</a>
+							<a href="{% url 'home:professor-detail' professor.id %}">{{ professor.first_name }} {{ professor.last_name }}</a>
 						</td>
 						<td>{{ professor.university_name }}</td>
 						<td>{{ professor.department_name }}</td>
@@ -28,6 +28,25 @@
 					</tr>
 				{% endfor %}
 			</table>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<ul class="pagination">
+					{% if professorsList.previous %}
+						<li class=""><a href="{{ professorsList.previous }}" ng-click="pagination($event.target.href);$event.preventDefault();">&laquo;</a></li>
+					{% else %}
+						<li class="disabled"><a>&laquo;</a></li>
+					{% endif %}
+
+					<li class="active"><a href="#">{{ page }}</a></li>
+
+					{% if professorsList.next %}
+						<li><a href="{{ professorsList.next }}" ng-click="pagination($event.target.href);$event.preventDefault();">&raquo;</a></li>
+					{% else %}
+						<li class="disabled"><a>&raquo;</a></li>
+					{% endif %}
+				</ul>
+			</div>
 		</div>
 	{% else %}
 		<div class="alert alert-warning">

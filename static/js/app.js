@@ -22,4 +22,14 @@ search.controller('SearchCtrl', function ($scope, $http, $sce) {
         	$scope.loading = false;
         });
     }
+
+    $scope.pagination = function(page){
+        $scope.searchData = ""
+        $scope.loading = true;
+        console.log(page);
+        $http.get(page).success(function(out_data){
+            $scope.searchData = $sce.trustAsHtml(out_data);
+            $scope.loading = false;
+        });
+    }
 })

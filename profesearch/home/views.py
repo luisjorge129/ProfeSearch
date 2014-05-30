@@ -23,14 +23,13 @@ class ProfessorsListView(ListView):
         if q:
             url = uri + "search/?format=%s&q=%s" % ("json",
                                                     urllib.quote_plus(q))
-            results = json.load(urllib2.urlopen(url))
-            for result in results:
-                result['star_score'] = starScore(0.40*100)
-            context['professorsList'] = results
-            context['count'] = len(results)
+            listings = json.load(urllib2.urlopen(url))
+            for result in listings['results']:
+                result['star_score'] = starScore(result['score']*100)
+            context['professorsList'] = listings
             context['keyword'] = q
         elif q == "":
-            context['count'] = ""
+            context['professorsList']['count'] = ""
         return context
 
 
@@ -55,14 +54,16 @@ class ProfessorDetailView(TemplateView):
 
 #Get star score
 def starScore(score):
-    if score >= 90:
+    print score
+    if score <= 100:
         star = 5
-    if score >= 80:
+    if score <= 90:
         star = 4
-    if score >= 70:
+    if score <= 80:
         star = 3
-    if score >= 60:
+    if score <= 70:
         star = 2
-    if score < 60:
+    if score <= 60:
         star = 1
+    print star
     return star

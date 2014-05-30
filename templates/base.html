@@ -3,8 +3,10 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>{% block title %}{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
 	<link rel="shortcut icon" type="image/png" href="{% static "img/search-icon.png" %}"/>
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -29,7 +31,7 @@
 	</div>
 
 	<div id="footer" class="text-center">
-		<p class="pull-right col-xs-12 col-sm-12">powered by <a href="http://notaso.com"><img id="notaso-logo" src="{% static 'img/notaso_logo.png' %}" alt=""></a></p>
+		<p class="col-xs-12 col-sm-12">powered by <a href="http://notaso.com"><img id="notaso-logo" src="{% static 'img/notaso_logo.png' %}" alt=""></a></p>
 		<div class="clear"></div>
 	</div>
 </body>
