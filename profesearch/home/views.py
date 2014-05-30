@@ -55,13 +55,11 @@ class ProfessorDetailView(TemplateView):
             result = json.load(urllib2.urlopen(url))
             context['professor'] = result
             context['star_score'] = starScore(result['score']*100)
-            print context['star_score']
         return context
 
 
 #Get star score
 def starScore(score):
-    print score
     if score <= 100:
         star = 5
     if score <= 90:
@@ -72,5 +70,4 @@ def starScore(score):
         star = 2
     if score <= 60:
         star = 1
-    print star
     return star
