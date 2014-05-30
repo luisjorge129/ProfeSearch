@@ -29,7 +29,8 @@ class ProfessorsListView(ListView):
             context['professorsList'] = results
             context['count'] = len(results)
             context['keyword'] = q
-
+        elif q == "":
+            context['count'] = ""
         return context
 
 

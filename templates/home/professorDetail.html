@@ -24,14 +24,16 @@
 				<p><strong>Puntuación:</strong> %{% widthratio professor.score 1 100 %}</p>
 				<p><strong>Genero: </strong>{{ professor.gender }}</p>
 			</div>
-			<div class="col-sm-12 text-center star star-detail">
-				{% for i in "12345" %}
-					{% if i|add:0 <= star_score %}
-						<i class="glyphicon glyphicon-star"></i>
-					{% else %}
-						<i class="glyphicon glyphicon-star-empty"></i>
-					{% endif %}
-				{% endfor %}
+			<div class="col-sm-12 text-center star">
+				<div id="star-detail">
+					{% for i in "12345" %}
+						{% if i|add:0 <= star_score %}
+							<i class="glyphicon glyphicon-star"></i>
+						{% else %}
+							<i class="glyphicon glyphicon-star-empty"></i>
+						{% endif %}
+					{% endfor %}
+				</div>
 			</div>
 			<div class="clear"></div>
 		</div>

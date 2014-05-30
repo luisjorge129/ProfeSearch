@@ -113,11 +113,38 @@ You also need to include this conditional style in the <head> of your HTML file 
 	margin-bottom: 20px;
 }
 
-.star > i{
+#professor-name{
+	font-size: 35px;
+	margin-top: 0px;
+	margin-bottom: 20px;
+}
+
+.star i{
 	color: #FEE128;
 }
 
-.star-detail > i{
+#star-detail > i{
 	font-size: 22px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#star-detail{
+	background-color: rgba(0, 0, 0, 0.1);
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-o-border-radius: 6px;
+	box-shadow: 3px 3px 3px #bbb;
+	-moz-box-shadow: 3px 3px 3px #bbb;
+	-webkit-box-shadow: 3px 3px 3px #bbb;
+	-o-box-shadow: 3px 3px 3px #bbb;
 	margin-top: 15px;
+}
+
+.jumbotron{
+	box-shadow: 3px 3px 8px #aaa;
+	-moz-box-shadow: 3px 3px 8px #aaa;
+	-webkit-box-shadow: 3px 3px 8px #aaa;
+	-o-box-shadow: 3px 3px 8px #aaa;
 }

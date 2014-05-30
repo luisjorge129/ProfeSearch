@@ -1,33 +1,39 @@
 {% if count != 0 %}
-<h4>Resultados: {{ count }}</h4>
-	<div ="row">
-		<table class="table table-hover">
-			<tr>
-				<th>Profesor</th>
-				<th>Universidad</th>
-				<th>Departamento</th>
-				<th>Puntuación</th>
-			</tr>
-			{% for professor in professorsList %}
+	{% if count %}
+		<h4>Resultados: {{ count }}</h4>
+		<div ="row">
+			<table class="table table-hover">
 				<tr>
-					<td>
-						<a href="{% url 'home:professor-detail' 818 %}">{{ professor.first_name }} {{ professor.last_name }}</a>
-					</td>
-					<td>{{ professor.university_name }}</td>
-					<td>{{ professor.department_name }}</td>
-					<td class="star">
-						{% for i in "12345" %}
-							{% if i|add:0 <= professor.star_score %}
-								<i class="glyphicon glyphicon-star"></i>
-							{% else %}
-								<i class="glyphicon glyphicon-star-empty"></i>
-							{% endif %}
-						{% endfor %}
-					</td>
+					<th>Profesor</th>
+					<th>Universidad</th>
+					<th>Departamento</th>
+					<th>Puntuación</th>
 				</tr>
-			{% endfor %}
-		</table>
-	</div>
+				{% for professor in professorsList %}
+					<tr>
+						<td>
+							<a href="{% url 'home:professor-detail' 818 %}">{{ professor.first_name }} {{ professor.last_name }}</a>
+						</td>
+						<td>{{ professor.university_name }}</td>
+						<td>{{ professor.department_name }}</td>
+						<td class="star">
+							{% for i in "12345" %}
+								{% if i|add:0 <= professor.star_score %}
+									<i class="glyphicon glyphicon-star"></i>
+								{% else %}
+									<i class="glyphicon glyphicon-star-empty"></i>
+								{% endif %}
+							{% endfor %}
+						</td>
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
+	{% else %}
+		<div class="alert alert-warning">
+			No se escribio ningun texto.
+		</div>
+	{% endif %}
 {% else %}
 	<div class="alert alert-danger">
 		No se encontro ningun profesor con el nombre: {{ keyword }}
