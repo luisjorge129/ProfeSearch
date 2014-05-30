@@ -1,6 +1,6 @@
 {% if professorsList.count != 0 %}
 	{% if professorsList.count %}
-		<h5> {{ professorsList.results|length }} de {{ professorsList.count }} resultados.</h5>
+		<h5> {{ professorsList.results|length }} resultado{{ professorsList.results|pluralize }}.</h5>
 		<div ="row">
 			<table class="table table-hover">
 				<tr>
@@ -29,25 +29,30 @@
 				{% endfor %}
 			</table>
 		</div>
-		<div class="row">
-			<div class="col-sm-12">
-				<ul class="pagination">
-					{% if professorsList.previous %}
-						<li class=""><a href="{{ professorsList.previous }}" ng-click="pagination($event.target.href);$event.preventDefault();">&laquo;</a></li>
-					{% else %}
-						<li class="disabled"><a>&laquo;</a></li>
-					{% endif %}
+		<!--
+		{# {% if professorsList.next %}
+			<div class="row">
+				<div class="col-sm-12 text-center">
+					<ul class="pagination">
+						{% if professorsList.previous %}
+							<li class=""><a href="?page{{ professorsList.previous }}">&laquo;</a></li>
+						{% else %}
+							<li class="disabled"><a>&laquo;</a></li>
+						{% endif %}
 
-					<li class="active"><a href="#">{{ page }}</a></li>
+						<li class="active"><a href="#">{{ page }}</a></li>
 
-					{% if professorsList.next %}
-						<li><a href="{{ professorsList.next }}" ng-click="pagination($event.target.href);$event.preventDefault();">&raquo;</a></li>
-					{% else %}
-						<li class="disabled"><a>&raquo;</a></li>
-					{% endif %}
-				</ul>
+						{% if professorsList.next %}
+							<li><a href="{% url 'home:professor-list' %}?url={{ professorsList.next }}">&raquo;</a></li>
+							<button ng-click="pagination(){{ professorsList.next }}"></button>
+						{% else %}
+							<li class="disabled"><a>&raquo;</a></li>
+						{% endif %}
+					</ul>
+				</div>
 			</div>
-		</div>
+		{% endif %} #}
+	-->
 	{% else %}
 		<div class="alert alert-warning">
 			No se escribio ningun texto.

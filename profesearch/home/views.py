@@ -20,7 +20,16 @@ class ProfessorsListView(ListView):
     def get_context_data(self, **kwargs):
         context = super(ProfessorsListView, self).get_context_data(**kwargs)
         q = self.request.GET.get('q')
-        if q:
+        url = self.request.GET.get('url')
+        if url:
+            url = url + "&page=%s&json=%s" % (self.request.GET.get('page'),
+                                              self.request.GET.get('format'))
+            listings = json.load(urllib2.urlopen(url))
+            for result in listings['results']:
+                result['star_score'] = starScore(result['score']*100)
+            context['professorsList'] = listings
+            context['keyword'] = q
+        elif q:
             url = uri + "search/?format=%s&q=%s" % ("json",
                                                     urllib.quote_plus(q))
             listings = json.load(urllib2.urlopen(url))
@@ -28,8 +37,6 @@ class ProfessorsListView(ListView):
                 result['star_score'] = starScore(result['score']*100)
             context['professorsList'] = listings
             context['keyword'] = q
-        elif q == "":
-            context['professorsList']['count'] = ""
         return context
 
 
