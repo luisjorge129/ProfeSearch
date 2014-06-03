@@ -7,4 +7,4 @@ TEMPLATE_DEBUG = DEBUG
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-SECRET_KEY = 'devolpment'
+SECRET_KEY = 'development'
