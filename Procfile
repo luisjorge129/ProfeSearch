@@ -1,0 +1,1 @@
+web: gunicorn profesearch_project.profesearch.wsgi

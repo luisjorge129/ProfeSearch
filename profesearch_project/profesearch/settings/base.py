@@ -9,8 +9,14 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+# from configurations import Configuration, values
 from os.path import abspath, basename, dirname, join, normpath
 DJANGO_ROOT = dirname(dirname(abspath(__file__)))
+
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# ENVIRONMENT = values.Value(environ_prefix=None, default='DEVELOPMENT')
 
 # Absolute filesystem path to the top-level project folder:
 SITE_ROOT = dirname(DJANGO_ROOT)
@@ -46,7 +52,7 @@ INSTALLED_APPS = (
 
     # Third party apps
     'djangular',
-    'debug_toolbar',
+    # 'debug_toolbar',
 )
 
 
