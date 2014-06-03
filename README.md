@@ -13,10 +13,12 @@ Debes tener instalado Python 2.7 en tu máquina.
 
 ```bash
 $ git clone https://github.com/luisjorge129/ProfeSearch.git
+$ cd ProfeSearch
 $ virtualenv venv
 $ source venv/bin/activate
-$ pip install -r requirements.txt
-$ python manage.py runserver
+$ pip install -r requirements/local.txt
+$ cd profesearch_project
+$ python manage.py runserver --settings=profesearch.settings.local
 ```
 
 Abre tu browser en [http://localhost:8000/](http://localhost:8000/).
