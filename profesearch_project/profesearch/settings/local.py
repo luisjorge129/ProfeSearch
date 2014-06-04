@@ -8,3 +8,10 @@ TEMPLATE_DEBUG = DEBUG
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 SECRET_KEY = 'development'
+
+# Application definition
+INSTALLED_APPS += (
+
+    'django_extensions',
+    'debug_toolbar',
+)

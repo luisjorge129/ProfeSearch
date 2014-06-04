@@ -7,12 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{% endblock %}</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+	<script src="https://code.angularjs.org/1.2.16/angular-resource.min.js"></script>
+	<script src="{% static 'js/app.js' %}"></script>
 	<link rel="shortcut icon" type="image/png" href="{% static "img/search-icon.png" %}"/>
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
-	<script src="https://code.angularjs.org/1.2.16/angular-resource.min.js"></script>
-	<script src="{% static 'js/app.js' %}"></script>
 	{% block css %}{% endblock %}
 </head>
 <body>
