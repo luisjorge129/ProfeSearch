@@ -48,7 +48,7 @@ INSTALLED_APPS = (
     'django.contrib.humanize',
 
     # Apps
-    'profesearch.home',
+    'profesearch_project.profesearch.home',
 
     # Third party apps
     'djangular',
@@ -83,9 +83,9 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.app_directories.Loader',
 )
 
-ROOT_URLCONF = 'profesearch.urls'
+ROOT_URLCONF = 'profesearch_project.profesearch.urls'
 
-WSGI_APPLICATION = 'profesearch.wsgi.application'
+WSGI_APPLICATION = 'profesearch_project.profesearch.wsgi.application'
 
 
 # Database
