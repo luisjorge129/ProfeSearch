@@ -52,7 +52,6 @@ INSTALLED_APPS = (
 
     # Third party apps
     'djangular',
-    'debug_toolbar',
 )
 
 

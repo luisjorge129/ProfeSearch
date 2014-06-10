@@ -6,7 +6,7 @@ from .base import *
 
 ALLOWED_HOSTS = ['*']
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = False
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
