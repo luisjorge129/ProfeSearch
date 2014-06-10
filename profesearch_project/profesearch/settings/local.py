@@ -2,8 +2,10 @@ from .base import *
 
 ALLOWED_HOSTS = []
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
+
+DEBUG_TOOLBAR_PATCH_SETTINGS = DEBUG
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 

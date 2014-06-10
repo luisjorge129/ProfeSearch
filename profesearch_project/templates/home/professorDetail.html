@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load humanize %}
 
 {% block title %}Professor: {{ professor.first_name }} {{ professor.last_name }}{% endblock title %}
 
@@ -50,7 +49,7 @@
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="comment-box">
-									<p><strong>{{ comment.name }}</strong><small class="text-muted"> - {{ comment.created_at|naturaltime }}</small></p>
+									<p><strong>{{ comment.name }}</strong><small class="text-muted"> - {{ comment.created_at }}</small></p>
 									<div class="comment-text">{{ comment.body }}</div>
 								</div>
 							</div>

@@ -9,10 +9,9 @@ ALLOWED_HOSTS = ['*']
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
+DEBUG_TOOLBAR_PATCH_SETTINGS = DEBUG
+
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-DEBUG_TOOLBAR_PATCH_SETTINGS = False
-
 
 def get_env_setting(setting):
     """ Get the environment setting or return exception """
