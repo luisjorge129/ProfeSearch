@@ -24,13 +24,11 @@ SITE_ROOT = dirname(DJANGO_ROOT)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
-DEBUG = False
-
 TEMPLATE_DIRS = (
     normpath(join(SITE_ROOT, 'templates')),
 )
 
-STATIC_ROOT = normpath(join(SITE_ROOT, 'assets'))
+STATIC_ROOT = normpath(join(SITE_ROOT, 'static'))
 
 STATIC_URL = '/static/'
 
@@ -49,7 +47,6 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.humanize',
 
     # Apps
     'profesearch.home',
