@@ -28,8 +28,6 @@ TEMPLATE_DIRS = (
     normpath(join(SITE_ROOT, 'templates')),
 )
 
-STATIC_ROOT = normpath(join(SITE_ROOT, 'static'))
-
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
