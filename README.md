@@ -2,7 +2,7 @@
 Busca a tus profesores antes de llegar al salón.
 
 ##Idea
-Este app te permite hacer search de los profesores de diferentes universidades de Puerto Rico. Es una aplicación sencilla que se alimenta del REST API de [Notaso](https://notaso.com).  La idea principal de esta aplicación es que funcione como ejemplo para los desarrolladores, para que vean y tengan una idea de como implementar el REST API de Notaso en sus aplicaciones. 
+Este app te permite hacer search de los profesores de diferentes universidades de Puerto Rico. Es una aplicación sencilla que se alimenta del REST API de [Notaso](https://notaso.com).  La idea principal de esta aplicación es que funcione como ejemplo para los desarrolladores, para que vean y tengan una idea de como implementar el REST API de Notaso en sus aplicaciones.  Por esta sencilla razón desarrolle [ProfeSearch](http://profesearch.herokuapp.com/).
 
 Para desarrollar esta aplicación utilicé:
 * [Django-AngularJS](https://github.com/jrief/django-angular.git)
