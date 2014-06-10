@@ -13,11 +13,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 DEBUG_TOOLBAR_PATCH_SETTINGS = False
 
-# Application definition
-INSTALLED_APPS += (
-    'south',
-)
-
 
 def get_env_setting(setting):
     """ Get the environment setting or return exception """
