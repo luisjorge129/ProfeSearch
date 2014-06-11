@@ -5,7 +5,7 @@
 {% block content %}
 	<div class="row">
 		<ol class="breadcrumb">
-		  <li><a ng-href="{% url 'home:home' %}">Search</a></li>
+		  <li><a ng-href="{% url 'search:search' %}">Search</a></li>
 		  <li class="active" >{{ professor.first_name }} {{ professor.last_name }}</li>
 		</ol>
 	</div>
@@ -59,8 +59,8 @@
 			</div>
 		</div>
 	{% else %}
-		<div class="alert alert-default">No hay ningun comentario.</div>
+		<div class="alert">
+			<h3 class="text-center">No hay ningun comentario para este profesor.</h3>
+		</div>
 	{% endif %}
 {% endblock content %}
-
-{% block js %}{% endblock js %}

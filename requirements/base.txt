@@ -1,3 +1,4 @@
 Django==1.6.5
 django-angular==0.7.2
 dj-static==0.0.5
+requests==2.3.0

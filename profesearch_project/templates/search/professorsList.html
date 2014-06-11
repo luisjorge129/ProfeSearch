@@ -12,7 +12,7 @@
 				{% for professor in professorsList.results %}
 					<tr>
 						<td>
-							<a href="{% url 'home:professor-detail' professor.id %}">{{ professor.first_name }} {{ professor.last_name }}</a>
+							<a href="{% url 'search:professor-detail' professor.id %}">{{ professor.first_name }} {{ professor.last_name }}</a>
 						</td>
 						<td>{{ professor.university_name }}</td>
 						<td>{{ professor.department_name }}</td>
@@ -43,7 +43,7 @@
 						<li class="active"><a href="#">{{ page }}</a></li>
 
 						{% if professorsList.next %}
-							<li><a href="{% url 'home:professor-list' %}?url={{ professorsList.next }}">&raquo;</a></li>
+							<li><a href="{% url 'search:professor-list' %}?url={{ professorsList.next }}">&raquo;</a></li>
 							<button ng-click="pagination(){{ professorsList.next }}"></button>
 						{% else %}
 							<li class="disabled"><a>&raquo;</a></li>

@@ -49,7 +49,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     # Apps
-    'profesearch.home',
+    'profesearch.search',
 
     # Third party apps
     'djangular',

@@ -1,38 +1,36 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 from django.views.generic import TemplateView
-import json
-import urllib2
 import urllib
+import requests
 
-uri = "https://notaso.com/api/"
+apiUrl = "https://notaso.com/api/"
 
 
-class HomeView(TemplateView):
-    template_name = 'home/home.html'
+class SearchView(TemplateView):
+    template_name = 'search/search.html'
     queryset = ""
 
 
 class ProfessorsListView(ListView):
-    template_name = 'home/professorsList.html'
+    template_name = 'search/professorsList.html'
     queryset = ""
 
     def get_context_data(self, **kwargs):
         context = super(ProfessorsListView, self).get_context_data(**kwargs)
         q = self.request.GET.get('q')
-        url = self.request.GET.get('url')
-        if url:
-            url = url + "&page=%s&json=%s" % (self.request.GET.get('page'),
-                                              self.request.GET.get('format'))
-            listings = json.load(urllib2.urlopen(url))
-            for result in listings['results']:
-                result['star_score'] = starScore(result['score']*100)
-            context['professorsList'] = listings
-            context['keyword'] = q
-        elif q:
-            url = uri + "search/?format=%s&q=%s" % ("json",
-                                                    urllib.quote_plus(q))
-            listings = json.load(urllib2.urlopen(url))
+        # url = self.request.GET.get('url')
+        # if url:
+        #     url = url + "&page=%s&json=%s" % (self.request.GET.get('page'),
+        #                                       self.request.GET.get('format'))
+        #     listings = json.load(urllib2.urlopen(url))
+        #     for result in listings['results']:
+        #         result['star_score'] = starScore(result['score']*100)
+        #     context['professorsList'] = listings
+        #     context['keyword'] = q
+        if q:
+            payload = {"format": "json", "q": urllib.quote_plus(q)}
+            listings = requests.get(apiUrl + "search/", params=payload).json()
             for result in listings['results']:
                 result['star_score'] = starScore(result['score']*100)
             context['professorsList'] = listings
@@ -41,7 +39,7 @@ class ProfessorsListView(ListView):
 
 
 class ProfessorDetailView(TemplateView):
-    template_name = 'home/professorDetail.html'
+    template_name = 'search/professorDetail.html'
 
     def get_context_data(self, id, **kwargs):
         context = super(ProfessorDetailView, self).get_context_data(**kwargs)
@@ -50,9 +48,9 @@ class ProfessorDetailView(TemplateView):
 
         id = self.kwargs['id']
         if id:
-            url = uri + "professors/%s?format=%s&comments=%s" % (id, "json",
-                                                                 "true")
-            result = json.load(urllib2.urlopen(url))
+            payload = {"format": "json", "comments": "true"}
+            result = (requests.get(apiUrl + "professors/"
+                                   + id, params=payload).json())
             context['professor'] = result
             context['star_score'] = starScore(result['score']*100)
         return context
