@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.shortcuts import render
 from django.views.generic import ListView
 from django.views.generic import TemplateView
@@ -29,7 +30,8 @@ class ProfessorsListView(ListView):
         #     context['professorsList'] = listings
         #     context['keyword'] = q
         if q:
-            payload = {"format": "json", "q": urllib.quote_plus(q)}
+            payload = {"format": "json",
+                       "q": q}
             listings = requests.get(apiUrl + "search/", params=payload).json()
             for result in listings['results']:
                 result['star_score'] = starScore(result['score']*100)

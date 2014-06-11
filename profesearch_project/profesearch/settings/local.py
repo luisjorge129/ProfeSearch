@@ -2,7 +2,7 @@ from .base import *
 
 ALLOWED_HOSTS = []
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 DEBUG_TOOLBAR_PATCH_SETTINGS = DEBUG
