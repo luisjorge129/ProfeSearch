@@ -19,7 +19,7 @@ path.append(SITE_ROOT)
 # mod_wsgi daemon mode with each site in its own daemon process, or use
 # os.environ["DJANGO_SETTINGS_MODULE"] = "jajaja.settings"
 os.environ.setdefault("DJANGO_SETTINGS_MODULE",
-                      "profesearch.settings.production")
+                      "profesearch.settings.local")
 
 from django.core.wsgi import get_wsgi_application
 from dj_static import Cling
