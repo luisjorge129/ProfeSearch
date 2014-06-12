@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Professor: {{ professor.first_name }} {{ professor.last_name }}{% endblock title %}
+{% block title %}{{ professor.first_name }} {{ professor.last_name }}{% endblock title %}
 
 {% block content %}
 	<div class="row">
@@ -42,7 +42,7 @@
 		<div class="row">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h4>Commentarios totales: {{ professor.user_comments.total_comments }}</h4>
+					<h4><i class="glyphicon glyphicon-comment"></i> Commentarios totales: {{ professor.user_comments.total_comments }}</h4>
 				</div>
 				<div class="panel-body">
 					{% for comment in professor.user_comments.entries %}

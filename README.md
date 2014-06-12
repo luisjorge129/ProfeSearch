@@ -18,7 +18,7 @@ $ virtualenv venv
 $ source venv/bin/activate
 $ pip install -r requirements/local.txt
 $ cd profesearch_project
-$ python manage.py runserver
+$ python manage.py runserver --settings=profesearch.settings.local
 ```
 
 Abre tu browser en [http://localhost:8000/](http://localhost:8000/).
