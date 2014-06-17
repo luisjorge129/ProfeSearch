@@ -21,6 +21,6 @@
 	<div ng-show="loading" ng-cloak class="text-center">
 		<img src="{% static "img/loading.gif" %}" id="loading" alt="loading" />
 	</div>
-	<div class="alert alert-warning" ng-if="error_message">{$ error_message $}</div>
+	<div class="alert alert-warning" ng-if="error_message" ng-cloak>{$ error_message $}</div>
 	<div ng-bind-html="searchData"></div>
 {% endblock content %}
