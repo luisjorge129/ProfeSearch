@@ -9,7 +9,7 @@ ALLOWED_HOSTS = ['*']
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-DEBUG_TOOLBAR_PATCH_SETTINGS = DEBUG
+DEBUG_TOOLBAR_PATCH_SETTINGS = False
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
